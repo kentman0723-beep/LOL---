@@ -591,18 +591,16 @@ body::before {
 .difficulty-card {
     background: linear-gradient(180deg, rgba(30, 35, 40, 0.9) 0%, rgba(10, 20, 40, 0.95) 100%);
     border: 2px solid var(--gold-5);
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: var(--spacing-2xl) var(--spacing-lg);
     cursor: pointer;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     transition: all 0.3s ease;
-    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    clip-path: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    min-height: 500px;
 }
 
 .difficulty-card::before {
@@ -671,13 +669,12 @@ body::before {
 }
 
 .card-icon {
-    width: 360px;
-    height: 360px;
-    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    margin: var(--spacing-md) auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
 }
 
 .card-icon img {

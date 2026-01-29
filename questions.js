@@ -1072,19 +1072,19 @@ const QUESTIONS_DATABASE = {
 const QUIZ_CONFIG = {
     beginner: {
         name: "ビギナー",
-        timeLimit: 90,
+        timeLimit: 100,
         questionCount: 10,
         theme: "beginner"
     },
     standard: {
         name: "スタンダード",
-        timeLimit: 60,
+        timeLimit: 70,
         questionCount: 15,
         theme: "standard"
     },
     pro: {
         name: "プロ",
-        timeLimit: 30,
+        timeLimit: 40,
         questionCount: 20,
         theme: "pro"
     }

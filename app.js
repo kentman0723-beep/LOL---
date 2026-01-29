@@ -37,16 +37,12 @@ class SoundManager {
     }
 
     initBGM() {
-        this.bgmAudio = new Audio(this.bgmUrl);
-        this.bgmAudio.loop = true;
-        this.bgmAudio.volume = this.bgmVolume;
+        // BGM無効化
     }
 
-    // BGM再生
+    // BGM再生（無効化）
     playBGM() {
-        if (this.bgmAudio && !this.isMuted) {
-            this.bgmAudio.play().catch(() => { });
-        }
+        // BGM削除 - 何もしない
     }
 
     // BGM停止
