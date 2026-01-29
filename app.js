@@ -176,6 +176,19 @@ class SoundManager {
         }
         return this.isMuted;
     }
+
+    // BGM音量設定
+    setBGMVolume(volume) {
+        this.bgmVolume = volume;
+        if (this.bgmAudio && !this.isMuted) {
+            this.bgmAudio.volume = volume;
+        }
+    }
+
+    // 効果音音量設定
+    setSFXVolume(volume) {
+        this.sfxVolume = volume;
+    }
 }
 
 // グローバルサウンドマネージャー
@@ -277,6 +290,31 @@ class LoLQuizGame {
         document.getElementById('home-btn').addEventListener('click', () => {
             this.showScreen('title');
             document.body.className = '';
+        });
+
+        // 音量コントロール
+        const bgmSlider = document.getElementById('bgm-volume');
+        const sfxSlider = document.getElementById('sfx-volume');
+        const bgmValue = document.getElementById('bgm-value');
+        const sfxValue = document.getElementById('sfx-value');
+        const muteBtn = document.getElementById('mute-btn');
+
+        bgmSlider.addEventListener('input', (e) => {
+            const vol = e.target.value;
+            bgmValue.textContent = vol + '%';
+            this.sound.setBGMVolume(vol / 100);
+        });
+
+        sfxSlider.addEventListener('input', (e) => {
+            const vol = e.target.value;
+            sfxValue.textContent = vol + '%';
+            this.sound.setSFXVolume(vol / 100);
+        });
+
+        muteBtn.addEventListener('click', () => {
+            const isMuted = this.sound.toggleMute();
+            muteBtn.textContent = isMuted ? '🔇 サウンドOFF' : '🔊 サウンドON';
+            muteBtn.classList.toggle('muted', isMuted);
         });
     }
 
